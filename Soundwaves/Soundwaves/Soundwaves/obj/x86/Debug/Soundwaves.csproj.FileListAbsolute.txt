@@ -1,0 +1,5 @@
+T:\Users\Tyler\Documents\GitHub\soundwaves\Soundwaves\Soundwaves\Soundwaves\bin\x86\Debug\Soundwaves.exe
+T:\Users\Tyler\Documents\GitHub\soundwaves\Soundwaves\Soundwaves\Soundwaves\bin\x86\Debug\Soundwaves.pdb
+T:\Users\Tyler\Documents\GitHub\soundwaves\Soundwaves\Soundwaves\Soundwaves\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+T:\Users\Tyler\Documents\GitHub\soundwaves\Soundwaves\Soundwaves\Soundwaves\obj\x86\Debug\Soundwaves.exe
+T:\Users\Tyler\Documents\GitHub\soundwaves\Soundwaves\Soundwaves\Soundwaves\obj\x86\Debug\Soundwaves.pdb

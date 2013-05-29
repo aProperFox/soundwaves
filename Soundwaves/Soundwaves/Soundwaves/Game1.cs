@@ -18,10 +18,18 @@ namespace Soundwaves
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        Player player;
+
+        Vector2 spritePosition;
+
+        List<Platform> platforms = new List<Platform>();
 
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
+            graphics.PreferredBackBufferHeight = 720;
+            graphics.PreferredBackBufferWidth = 1280;
+            graphics.IsFullScreen = false;
             Content.RootDirectory = "Content";
         }
 
@@ -46,7 +54,16 @@ namespace Soundwaves
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-
+            player = new Player();
+            spritePosition = new Vector2(300, 250);
+            platforms.Add(new Platform(Content.Load<Texture2D>("Platform"), new Vector2(0, 700)));
+            platforms.Add(new Platform(Content.Load<Texture2D>("Platform"), new Vector2(200, 700)));
+            platforms.Add(new Platform(Content.Load<Texture2D>("Platform"), new Vector2(400, 700)));
+            platforms.Add(new Platform(Content.Load<Texture2D>("Platform"), new Vector2(600, 700)));
+            platforms.Add(new Platform(Content.Load<Texture2D>("Platform"), new Vector2(800, 700)));
+            platforms.Add(new Platform(Content.Load<Texture2D>("Platform"), new Vector2(1000, 700)));
+            platforms.Add(new Platform(Content.Load<Texture2D>("Platform"), new Vector2(400, 670)));
+            platforms.Add(new Platform(Content.Load<Texture2D>("Platform"), new Vector2(560, 600)));
             // TODO: use this.Content to load your game content here
         }
 
@@ -81,7 +98,8 @@ namespace Soundwaves
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+
+            graphics.GraphicsDevice.Clear(Color.Aquamarine);
 
             // TODO: Add your drawing code here
 
