@@ -8,9 +8,18 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>T:\Users\Tyler\Documents\GitHub\soundwaves\Soundwaves\Soundwaves\Soundwaves\bin\x86\Debug\Content\Platform.xnb</Output>
-      <Time>0001-01-01T00:00:00</Time>
+      <Time>2013-05-28T19:57:12.17363-06:00</Time>
     </Item>
-    <BuildSuccessful>false</BuildSuccessful>
+    <Item>
+      <Source>heronorm.png</Source>
+      <Name>heronorm</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>T:\Users\Tyler\Documents\GitHub\soundwaves\Soundwaves\Soundwaves\Soundwaves\bin\x86\Debug\Content\heronorm.xnb</Output>
+      <Time>2013-05-29T18:13:55.6448348-06:00</Time>
+    </Item>
+    <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
       <TargetProfile>HiDef</TargetProfile>

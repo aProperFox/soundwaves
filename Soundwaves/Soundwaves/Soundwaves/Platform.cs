@@ -9,9 +9,23 @@ namespace Soundwaves
 {
     class Platform
     {
-        public Platform(Texture2D newTexture, Vector2 newPosition)
-        {
+        Texture2D platformTex;
+        Rectangle platformPos;
 
+        public Platform(Texture2D newTexture, Rectangle newPosition)
+        {
+            platformTex = newTexture;
+            platformPos = newPosition;
+
+        }
+        public void Draw(SpriteBatch spriteBatch)
+        {
+            spriteBatch.Draw(platformTex, platformPos, null, Color.White);
+        }
+
+        public Rectangle getPosition()
+        {
+            return platformPos;
         }
     }
 }
