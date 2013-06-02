@@ -191,12 +191,12 @@ namespace Soundwaves
             {
                 incrementSpritePosition(0, -10f);
 
-                setYVelocity(-5f);
+                setYVelocity(-8f);
                 setHasJumped(true);
             }
 
             float i = 1;
-            incrementVelocity(0, (0.15f * i));
+            incrementVelocity(0, (0.25f * i));
 
         }
         public void setHeadState(String state)

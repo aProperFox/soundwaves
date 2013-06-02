@@ -11,24 +11,23 @@ namespace Soundwaves
 
     class Enemy
     {
-        private int hitPoints;
-        private int type;
         public bool isVisible;
+        Body body;
 
-        public Enemy(Texture2D newTexture, Vector2 newPosition, ContentManager Content, int hp, int kind)
+        public Enemy(Texture2D newTexture, Rectangle newPosition)
         {
-            hitPoints = hp;
-            type = kind;
             isVisible = true;
+            body = new Body(newPosition, 1, newTexture);
 
         }
 
-        public int getHP()
-        {
-            return hitPoints;
-        }
         public void hpUpdate(int damageType)
         {
+        }
+
+        public void Draw(SpriteBatch spriteBatch)
+        {
+            body.Draw(spriteBatch);
         }
 /*
 
