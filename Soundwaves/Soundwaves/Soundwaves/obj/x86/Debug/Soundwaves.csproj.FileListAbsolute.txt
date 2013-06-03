@@ -5,3 +5,5 @@ T:\Users\Tyler\Documents\GitHub\soundwaves\Soundwaves\Soundwaves\Soundwaves\obj\
 T:\Users\Tyler\Documents\GitHub\soundwaves\Soundwaves\Soundwaves\Soundwaves\obj\x86\Debug\Soundwaves.pdb
 T:\Users\Tyler\Documents\GitHub\soundwaves\Soundwaves\Soundwaves\Soundwaves\bin\x86\Debug\Content\Platform.xnb
 T:\Users\Tyler\Documents\GitHub\soundwaves\Soundwaves\Soundwaves\Soundwaves\bin\x86\Debug\Content\heronorm.xnb
+T:\Users\Tyler\Documents\GitHub\soundwaves\Soundwaves\Soundwaves\Soundwaves\obj\x86\Debug\Soundwaves.csprojResolveAssemblyReference.cache
+T:\Users\Tyler\Documents\GitHub\soundwaves\Soundwaves\Soundwaves\Soundwaves\bin\x86\Debug\Content\stick.xnb
