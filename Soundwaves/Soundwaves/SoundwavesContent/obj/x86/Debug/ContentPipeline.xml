@@ -19,6 +19,15 @@
       <Output>T:\Users\Tyler\Documents\GitHub\soundwaves\Soundwaves\Soundwaves\Soundwaves\bin\x86\Debug\Content\heronorm.xnb</Output>
       <Time>2013-05-29T18:13:55.6448348-06:00</Time>
     </Item>
+    <Item>
+      <Source>stick.png</Source>
+      <Name>stick</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>T:\Users\Tyler\Documents\GitHub\soundwaves\Soundwaves\Soundwaves\Soundwaves\bin\x86\Debug\Content\stick.xnb</Output>
+      <Time>2013-05-30T18:45:43.6950696-06:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

@@ -19,7 +19,7 @@ namespace Soundwaves
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         hero player;
-
+        Enemy man;
         Vector2 spritePosition;
 
         List<Platform> platforms = new List<Platform>();
@@ -42,7 +42,7 @@ namespace Soundwaves
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-
+            IsMouseVisible = true;
             base.Initialize();
         }
 
@@ -57,6 +57,7 @@ namespace Soundwaves
             player = new hero(Content.Load<Texture2D>("heronorm"), new Vector2(50, 500), this.Content);
             spritePosition = new Vector2(300, 250);
             platforms.Add(new Platform(Content.Load<Texture2D>("Platform"), new Rectangle(0,690,graphics.PreferredBackBufferWidth,30)));
+            man = new Enemy(Content.Load<Texture2D>("stick"), new Rectangle(500, 300, 10, 50));
             // TODO: use this.Content to load your game content here
         }
 
@@ -76,11 +77,13 @@ namespace Soundwaves
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
+            
             // Allows the game to exit
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
             player.Update(gameTime);
-
+            if (Mouse.GetState().LeftButton == ButtonState.Pressed)
+                System.Diagnostics.Debug.Write("Mouse is at:" + Mouse.GetState().X + ", " + Mouse.GetState().Y + Environment.NewLine);
             foreach (Platform platform in platforms)
             {
                 if (player.rectangle.isTop(platform.getPosition()))
@@ -108,6 +111,7 @@ namespace Soundwaves
             //Begin sprite drawing
             spriteBatch.Begin();
             player.Draw(spriteBatch);
+            man.Draw(spriteBatch);
             //Draw Platfroms
             foreach (Platform platform in platforms)
             {
