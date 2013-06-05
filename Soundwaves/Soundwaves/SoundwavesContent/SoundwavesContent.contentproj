@@ -42,6 +42,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConvertUnits.cs">
+      <Name>ConvertUnits</Name>
+    </Compile>
     <Compile Include="Platform.png">
       <Name>Platform</Name>
       <Importer>TextureImporter</Importer>

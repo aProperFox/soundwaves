@@ -16,6 +16,8 @@ namespace Soundwaves
         Texture2D stick;
         Vector2 position;
 
+        float maxAngle, minAngle;
+
         public Limb(Vector2 newPosition, Vector2 origin, int angle, Texture2D newTexture, Vector2 size)
         {
             this.angle = ((float)angle)*convert;
@@ -26,14 +28,16 @@ namespace Soundwaves
             System.Diagnostics.Debug.Write(newPosition.X + " " + newPosition.Y + Environment.NewLine);
         }
 
-        public void rotateCloc(int angle)
+        public void rotateCloc()
         {
-
+            if(angle < maxAngle)
+                angle += 0.1f;
         }
 
-        public void rotateCounterCloc(int angle)
+        public void rotateCounterCloc()
         {
-
+            if(angle > minAngle)
+                angle -= 0.1f;  
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -52,6 +56,21 @@ namespace Soundwaves
         {
              System.Diagnostics.Debug.Write((int)(Math.Cos(angle)*size.Y) + Environment.NewLine);
             return new Vector2((int)(Math.Sin(angle)*size.Y)+position.X, (int)(Math.Cos(angle+Math.PI)*size.Y)+this.position.Y);
+        }
+
+        public void setPosition(Vector2 newPosition)
+        {
+            position = newPosition;
+        }
+
+        public void setMaxAngle(float max)
+        {
+            maxAngle = max;
+        }
+
+        public void setMinAngle(float min)
+        {
+            minAngle = min;
         }
     }
 }

@@ -160,12 +160,12 @@ namespace Soundwaves
             rectangle = new Rectangle((int)spritePosition.X,
 (int)spritePosition.Y, getMyTexture().Width / 2, getMyTexture().Height);
             incrementSpritePosition(getXVelocity(), getYVelocity());
-            if (Keyboard.GetState().IsKeyDown(Keys.D))
+            if (Keyboard.GetState().IsKeyDown(Keys.Right))
             {
                 setXVelocity(3f);
                 headPosition.X = spritePosition.X + 10;
             }
-            else if (Keyboard.GetState().IsKeyDown(Keys.A))
+            else if (Keyboard.GetState().IsKeyDown(Keys.Left))
             {
                 setXVelocity(-3f);
                 headPosition.X = spritePosition.X + 10;
