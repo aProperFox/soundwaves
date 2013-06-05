@@ -12,12 +12,12 @@ namespace Soundwaves
     class Enemy
     {
         public bool isVisible;
-        Body body;
+        public Booty body;
 
         public Enemy(Texture2D newTexture, Rectangle newPosition)
         {
             isVisible = true;
-            body = new Body(newPosition, 1, newTexture);
+            body = new Booty(newPosition, 1, newTexture);
 
         }
 
@@ -29,6 +29,9 @@ namespace Soundwaves
         {
             body.Draw(spriteBatch);
         }
+
+        
+
 /*
 
         public void Update(GameTime gameTime, Vector2 heroPos)

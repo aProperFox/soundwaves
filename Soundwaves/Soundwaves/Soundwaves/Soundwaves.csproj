@@ -90,10 +90,20 @@
     <Reference Include="mscorlib">
       <Private>False</Private>
     </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>E:\Program Files\Microsoft Visual Studio 10.0\Physics2D.Net\lib\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="SdlDotNet">
+      <HintPath>E:\Program Files\Microsoft Visual Studio 10.0\Physics2D.Net\lib\SdlDotNet.dll</HintPath>
+    </Reference>
+    <Reference Include="SdlDotNet.OpenGl">
+      <HintPath>E:\Program Files\Microsoft Visual Studio 10.0\Physics2D.Net\lib\SdlDotNet.OpenGl.dll</HintPath>
+    </Reference>
     <Reference Include="System">
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml">
       <Private>False</Private>
     </Reference>
@@ -106,9 +116,16 @@
     <Reference Include="System.Net">
       <Private>False</Private>
     </Reference>
+    <Reference Include="Tao.OpenGl">
+      <HintPath>E:\Program Files\Microsoft Visual Studio 10.0\Physics2D.Net\lib\Tao.OpenGl.dll</HintPath>
+    </Reference>
+    <Reference Include="Tao.Sdl">
+      <HintPath>E:\Program Files\Microsoft Visual Studio 10.0\Physics2D.Net\lib\Tao.Sdl.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Body.cs" />
+    <Compile Include="Ball.cs" />
+    <Compile Include="Booty.cs" />
     <Compile Include="Enemy.cs" />
     <Compile Include="Limb.cs" />
     <Compile Include="Platform.cs" />
@@ -125,6 +142,23 @@
     <ProjectReference Include="..\SoundwavesContent\SoundwavesContent.contentproj">
       <Name>SoundwavesContent</Name>
       <XnaReferenceType>Content</XnaReferenceType>
+    </ProjectReference>
+    <ProjectReference Include="E:\Program Files\Microsoft Visual Studio 10.0\Farseer Physics Engine 3.3.1 Samples XNA\DebugView XNA\DebugView XNA.csproj">
+      <Project>{FC7845FA-13FE-4FF8-822A-A577F3F59B00}</Project>
+      <Name>DebugView XNA</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\Program Files\Microsoft Visual Studio 10.0\Farseer Physics Engine 3.3.1 Samples XNA\Farseer Physics Engine 3.3 XNA\Farseer Physics XNA.csproj">
+      <Project>{0A850700-1ABB-4288-A391-6726B90EBEB9}</Project>
+      <Name>Farseer Physics XNA</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\Program Files\Microsoft Visual Studio 10.0\Farseer Physics Engine 3.3.1 Samples XNA\Samples XNA\Samples XNAContent\Samples XNA Content.contentproj">
+      <Project>{C8D1B1FB-E7FA-4BCF-BC8A-4D5D93429F67}</Project>
+      <Name>Samples XNA Content %28Content%29</Name>
+      <XnaReferenceType>Content</XnaReferenceType>
+    </ProjectReference>
+    <ProjectReference Include="E:\Program Files\Microsoft Visual Studio 10.0\Farseer Physics Engine 3.3.1 Samples XNA\Samples XNA\Samples XNA\Samples XNA.csproj">
+      <Project>{1681ADA2-B2F3-4157-A603-82C742379856}</Project>
+      <Name>Samples XNA</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -153,6 +187,9 @@
       <ProductName>Microsoft XNA Framework Redistributable 4.0</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\Microsoft.Xna.GameStudio.targets" />
