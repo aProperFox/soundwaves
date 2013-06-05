@@ -8,6 +8,9 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
+using FarseerPhysics.Dynamics;
+using FarseerPhysics.Collision.Shapes;
+using FarseerPhysics.SamplesFramework;
 
 namespace Soundwaves
 {
@@ -22,8 +25,13 @@ namespace Soundwaves
         Enemy man;
         Vector2 spritePosition;
 
+        Boolean isShift = false;
         List<Platform> platforms = new List<Platform>();
 
+        World world = new World(new Vector2(0f, 9.82f));
+        Body myBody = new Body();
+        CircleShape circleShape = new CircleShape();
+        Fixture fixture = new Fixture();
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -43,6 +51,10 @@ namespace Soundwaves
         {
             // TODO: Add your initialization logic here
             IsMouseVisible = true;
+
+            myBody.BodyType = BodyType.Dynamic;
+            fixture = myBody.CreateFixture(circleShape);
+
             base.Initialize();
         }
 
@@ -52,6 +64,8 @@ namespace Soundwaves
         /// </summary>
         protected override void LoadContent()
         {
+
+            world.ContactManager.OnBroadphaseCollision += MyOnBroadphaseCollision;
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
             player = new hero(Content.Load<Texture2D>("heronorm"), new Vector2(50, 500), this.Content);
@@ -77,7 +91,7 @@ namespace Soundwaves
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            
+            world.Step(0.033333f);
             // Allows the game to exit
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
@@ -96,6 +110,86 @@ namespace Soundwaves
 
             }
 
+            if (Keyboard.GetState().IsKeyDown(Keys.LeftShift) || Keyboard.GetState().IsKeyDown(Keys.RightShift))
+            {
+                isShift = true;
+            }
+            if (Keyboard.GetState().IsKeyUp(Keys.LeftShift) && Keyboard.GetState().IsKeyUp(Keys.RightShift))
+            {
+                isShift = false;
+            }
+            if (!isShift)
+            {
+                if (Keyboard.GetState().IsKeyDown(Keys.Q))
+                {
+                    man.body.incBicepL();
+                }
+                if (Keyboard.GetState().IsKeyDown(Keys.W))
+                {
+                    man.body.incBicepR();
+                }
+                if (Keyboard.GetState().IsKeyDown(Keys.E))
+                {
+                    man.body.incForeArmL();
+                }
+                if (Keyboard.GetState().IsKeyDown(Keys.R))
+                {
+                    man.body.incForeArmR();
+                }
+                if (Keyboard.GetState().IsKeyDown(Keys.A))
+                {
+                    man.body.incThighL();
+                }
+                if (Keyboard.GetState().IsKeyDown(Keys.S))
+                {
+                    man.body.incThighR();
+                }
+                if (Keyboard.GetState().IsKeyDown(Keys.D))
+                {
+                    man.body.incCalfL();
+                }
+                if (Keyboard.GetState().IsKeyDown(Keys.F))
+                {
+                    man.body.incCalfR();
+                }
+            }
+            else
+            {
+                if (Keyboard.GetState().IsKeyDown(Keys.Q))
+                {
+                    man.body.decBicepL();
+                }
+                if (Keyboard.GetState().IsKeyDown(Keys.W))
+                {
+                    man.body.decBicepR();
+                }
+                if (Keyboard.GetState().IsKeyDown(Keys.E))
+                {
+                    man.body.decForeArmL();
+                }
+                if (Keyboard.GetState().IsKeyDown(Keys.R))
+                {
+                    man.body.decForeArmR();
+                }
+                if (Keyboard.GetState().IsKeyDown(Keys.A))
+                {
+                    man.body.decThighL();
+                }
+                if (Keyboard.GetState().IsKeyDown(Keys.S))
+                {
+                    man.body.decThighR();
+                }
+                if (Keyboard.GetState().IsKeyDown(Keys.D))
+                {
+                    man.body.decCalfL();
+                }
+                if (Keyboard.GetState().IsKeyDown(Keys.F))
+                {
+                    man.body.decCalfR();
+                }
+            }
+            
+            man.body.update();
             // TODO: Add your update logic here
 
             base.Update(gameTime);
@@ -105,11 +199,13 @@ namespace Soundwaves
         /// This is called when the game should draw itself.
         /// </summary>
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
-        protected override void Draw(GameTime gameTime)
+       /* protected override void Draw(GameTime gameTime)
         {
             graphics.GraphicsDevice.Clear(Color.Aquamarine);
             //Begin sprite drawing
             spriteBatch.Begin();
+
+            
             player.Draw(spriteBatch);
             man.Draw(spriteBatch);
             //Draw Platfroms
@@ -119,6 +215,20 @@ namespace Soundwaves
             }
             //End Sprite Drawing
             spriteBatch.End();
+            base.Draw(gameTime);
+        }*/
+
+        public override void Draw(GameTime gameTime)
+        {
+
+            ScreenManager.LineBatch.Begin(Camera.SimProjection, Camera.SimView);
+            // draw ground
+            for (int i = 0; i < myBody.FixtureList.Count; ++i)
+            {
+                ScreenManager.LineBatch.DrawLineShape(myBody.FixtureList[i].Shape, Color.Black);
+            }
+            ScreenManager.LineBatch.End();
+
             base.Draw(gameTime);
         }
     }
